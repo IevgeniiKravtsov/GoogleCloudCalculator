@@ -4,8 +4,16 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,10 +26,29 @@ public class CalculatorTest {
     GoogleCloudPage googleCloudPage;
     CloudPricingCalculatorPage cloudPricingCalculatorPage;
 
-    @BeforeAll
-    public void setUp() {
+//    @BeforeAll
+    public void setUp() { //setUp local driver or use seleniumGridSetUp for remote test execution
+// setUp FireFox driver
+/*       System.clearProperty("webdriver.chrome.driver");
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
+*/
+// setUp Chrome driver
+        /*        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver(options);
+        */
+    }
+
+    @BeforeAll // setUp SeleniumGrid use this or setUp method to setUp the local or remote test execution
+    // before running need to set up Selenium Server https://www.selenium.dev/documentation/grid/
+    public void seleniumGridSetUp() throws MalformedURLException {
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setPlatform(Platform.WIN10);
+        caps.setBrowserName("chrome");
+        driver = new RemoteWebDriver(new URL("http://localhost:4444"), caps);
     }
 
     @Test
@@ -76,6 +103,6 @@ public class CalculatorTest {
 
     @AfterAll
     public void terDown() {
-        driver.quit();
+       driver.quit();
     }
 }

@@ -25,12 +25,14 @@ public class CloudPricingCalculatorPage {
     private final By numberOfGPUs = By.xpath("//md-select[@placeholder='Number of GPUs']");
     private final String numberOfGPUsItem = "//span[text()='home']/following-sibling::div[contains(@class,'md-active')]//md-option[@value='%s']";
     private final By localSSD = By.xpath("//md-select[@placeholder='Local SSD']");
-    private final By localSSD2_375 = By.xpath("//span[text()='home']/following-sibling::div[contains(@class,'md-active')]//md-option[@value='2']");
+    //private final By localSSD2_375 = By.xpath("//span[text()='home']/following-sibling::div[contains(@class,'md-active')]//md-option[@value='2']");
+    private final By localSSD2_375 = By.xpath("(//div[@class='md-text ng-binding'][contains(text(),'4x375')]) [2]");
     private final By dataCenterLocation = By.xpath("//md-select[@placeholder='Datacenter location']");
     private final String dataCenterLocationItem = ("(//md-option/div[contains(text(),'%s')])[3]");
     private final By committedUsage = By.xpath("//md-select[@placeholder='Committed usage']");
     private final String committedUsageItem = ("(//md-option/div[@class='md-text'][contains(text(),'%s')])[2]");
-    private final By addToEstimateButton = By.xpath("//h2[text()='Instances']/..//button[contains(text(),'Add to Estimate')]");
+    //private final By addToEstimateButton = By.xpath("//h2[text()='Instances']/..//button[contains(text(),'Add to Estimate')]");
+    private final By addToEstimateButton = By.xpath("//button[contains(text(),' Estimate')]");
     private final By estimateTotalEstimatedCost = By.xpath("//b[contains(text(),'Total Estimated Cost:')]");
     private final By estimateTotalInstances = By.xpath("//h2/span[text()='Compute Engine']/../../following-sibling::md-list/div/div/div/div/span");
     private final By estimateProvisioningModel  = By.xpath("//h2/span[text()='Compute Engine']/../../following-sibling::md-list/md-list-item/div[contains(text(),'Provisioning model')]");
@@ -145,7 +147,7 @@ public class CloudPricingCalculatorPage {
     }
     public void clickOnAddToEstimateButton (){
         webDriverWait
-                .until(ExpectedConditions.presenceOfElementLocated(addToEstimateButton))
+                .until(ExpectedConditions.elementToBeClickable(addToEstimateButton)) //presenceOfElementLocated
                 .click();
     }
     public String getTotalEstimatedCostUsd(){
