@@ -1,3 +1,7 @@
+package page;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +13,9 @@ import java.time.Duration;
 public class CloudPricingCalculatorPage {
     WebDriver driver;
     WebDriverWait webDriverWait;
+
+    private final Logger logger = LogManager.getRootLogger();
+
     private final By computeEngineButton = By.xpath("(//md-pagination-wrapper/md-tab-item)[1]");
     private final By numberOfInstances = By.xpath("//*[contains(text(),'Number of instances')]/..//input[@name='quantity']");
     private final By whatAreTheseInstancesFor = By.xpath("//*[contains(text(),'What are these instances for?')]/..//input[@name='label']");
@@ -86,6 +93,7 @@ public class CloudPricingCalculatorPage {
         webDriverWait
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(String.format(provisioningModelRegular, pModel))))
                 .click();
+        logger.info(pModel+" provisioning model is entered");
     }
     public  void enterSeries (String series) {
         webDriverWait
