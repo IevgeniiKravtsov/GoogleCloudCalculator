@@ -42,7 +42,6 @@ public class DriverSingleton {
                 default: {};
             }
             driver.manage().window().maximize();
-
         }
         return driver;
     }

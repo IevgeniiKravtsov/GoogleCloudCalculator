@@ -19,9 +19,9 @@ public class CalculatorTest extends CommonConditions{
 
     @Test
     @Tag("Smoke")
+    @Tag("Regression")
     public void isCloudPricingCalculatorPageOpen() {
         String etalonText = "Google Cloud Platform Pricing Calculator";
-
         driver.get(baseURL);
         googleCloudPage = new GoogleCloudPage(driver);
         googleCloudPage.findTextInSearchField(etalonText);
@@ -31,6 +31,7 @@ public class CalculatorTest extends CommonConditions{
 
     @Test
     @Tag("Smoke")
+    @Tag("Regression")
     public void isComputeEngineButtonPressed() {
         driver.get(calculatorPage);
         cloudPricingCalculatorPage = new CloudPricingCalculatorPage(driver);
