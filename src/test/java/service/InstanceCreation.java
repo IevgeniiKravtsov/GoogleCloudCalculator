@@ -17,6 +17,8 @@ public class InstanceCreation {
     public static final String NUMBER_OF_GPUs = "testdata.instance.numberOfGPUs";
     public static final String DATA_CENTER_LOCATION = "testdata.instance.datacenterLocation";
     public static final String COMMITTED_USAGE = "testdata.instance.committedUsage";
+    public static final String TOTAL_ESTIMATED_COST_USD = "testdata.instance.totalEstimatedCostUsd";
+
 
     public static Instance withDataFromProperty() {
         Instance instance = new Instance();
@@ -24,6 +26,7 @@ public class InstanceCreation {
         instance.setGoalOfInstances(TestDataReader.getTestData(GOAL_OF_INSTANCES));
         instance.setNumberOfInstances(TestDataReader.getTestData(NUMBER_OF_INSTANCES));
         instance.setProvisioningModel(TestDataReader.getTestDataData(PROVISIONING_MODEL));
+        instance.setTotalEstimatedCostUsd(TestDataReader.getTestData(TOTAL_ESTIMATED_COST_USD));
 
         instance.setTypeOfSeries(TestDataReader.getTestDataData(SERIES));
         instance.setTypeOfInstance(TestDataReader.getTestDataData(TYPE_OF_INSTANCES));
@@ -32,7 +35,7 @@ public class InstanceCreation {
         instance.setDataCenterLocation(TestDataReader.getTestDataData(DATA_CENTER_LOCATION));
         instance.setCommittedUsage(TestDataReader.getTestDataData(COMMITTED_USAGE));
 
-        logger.info(TestDataReader.getTestData(GOAL_OF_INSTANCES)+" env is chosen");
+        logger.info(TestDataReader.getTestData(GOAL_OF_INSTANCES)+" env is chosen with $$ "+TestDataReader.getTestData(TOTAL_ESTIMATED_COST_USD));
 
         return instance;
     }

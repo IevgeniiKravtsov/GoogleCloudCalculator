@@ -14,6 +14,8 @@ public class Instance {
     private String dataCenterLocation;
     private String committedUsage;
 
+    private String totalEstimatedCostUsd;
+
     public Instance() {
     }
 
@@ -111,5 +113,13 @@ public class Instance {
 
     public void setCommittedUsage(String committedUsage) {
         this.committedUsage = committedUsage;
+    }
+
+    public String getTotalEstimatedCostUsd() {
+        return totalEstimatedCostUsd;
+    }
+
+    public void setTotalEstimatedCostUsd(String totalEstimatedCostUsd) {
+        this.totalEstimatedCostUsd = totalEstimatedCostUsd;
     }
 }

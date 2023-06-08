@@ -70,8 +70,9 @@ public class CalculatorTest extends CommonConditions{
         softAssertions.assertThat(cloudPricingCalculatorPage.getEstimateCommitmentTerm()).isEqualTo(("1 Year"));
         softAssertions.assertThat(cloudPricingCalculatorPage.getEstimateTotalInstances()).isEqualTo((testInstance.getNumberOfInstances()+" x "+testInstance.getGoalOfInstances()));
 
-        softAssertions.assertThat(cloudPricingCalculatorPage.getTotalEstimatedCostUsd()).isEqualTo(("USD 1,538.52 per 1 month"));
+        softAssertions.assertThat(cloudPricingCalculatorPage.getTotalEstimatedCostUsd()).isEqualTo((testInstance.getTotalEstimatedCostUsd()));
         softAssertions.assertAll();
+
     }
 
 }

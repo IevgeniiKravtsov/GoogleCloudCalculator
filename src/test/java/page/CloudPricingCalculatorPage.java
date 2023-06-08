@@ -1,20 +1,11 @@
 package page;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class CloudPricingCalculatorPage {
-    WebDriver driver;
-    WebDriverWait webDriverWait;
-
-    private final Logger logger = LogManager.getRootLogger();
+public class CloudPricingCalculatorPage extends BasePage{
 
     private final By computeEngineButton = By.xpath("(//md-pagination-wrapper/md-tab-item)[1]");
     private final By numberOfInstances = By.xpath("//*[contains(text(),'Number of instances')]/..//input[@name='quantity']");
@@ -48,10 +39,14 @@ public class CloudPricingCalculatorPage {
     private final By estimateLocalSSD  = By.xpath("//h2/span[text()='Compute Engine']/../../following-sibling::md-list/md-list-item/div[contains(text(),'Local SSD')]");
     private final By estimateCommitmentTerm  = By.xpath("//h2/span[text()='Compute Engine']/../../following-sibling::md-list/md-list-item/div[contains(text(),'Commitment term:')]");
 
-    public CloudPricingCalculatorPage(WebDriver driver) {
-        this.driver = driver;
-        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    @Override
+    protected BasePage openPage() {
+        return this;
     }
+
+    public CloudPricingCalculatorPage(WebDriver driver) {
+        super(driver);
+     }
 
     public String separateByDoubleDots (String inputString) {
         String[] parts = inputString.split(":");

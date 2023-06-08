@@ -22,13 +22,13 @@ public class DriverSingleton {
                 case "firefox": {
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
-                    logger.info("FireFox driver is chosen");
+                    logger.info("FireFox driver is chosen, test suits: "+System.getProperty("groups"));
                     break;
                 }
                 case "edge":{
                     WebDriverManager.firefoxdriver().setup();
                     driver = new EdgeDriver();
-                    logger.info("Edge driver is chosen");
+                    logger.info("Edge driver is chosen, test suits: "+System.getProperty("groups"));
                     break;
                 }
                 case "chrome":{
@@ -36,7 +36,7 @@ public class DriverSingleton {
                     options.addArguments("--remote-allow-origins=*");
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver(options);
-                    logger.info("Chrome driver is chosen");
+                    logger.info("Chrome driver is chosen, test suits: "+System.getProperty("groups"));
                     break;
                 }
                 default: {};
