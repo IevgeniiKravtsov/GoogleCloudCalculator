@@ -16,8 +16,24 @@ public class Instance {
 
     private String totalEstimatedCostUsd;
 
-    public Instance() {
+    public Instance(String instanceName, String numberOfInstances, String goalOfInstances, String operatingSystem, String provisioningModel, String typeOfSeries, String typeOfInstance, String typeOfGPU, String numberOfGPUs, String localSSD, String dataCenterLocation, String committedUsage, String totalEstimatedCostUsd) {
+        this.instanceName = instanceName;
+        this.numberOfInstances = numberOfInstances;
+        this.goalOfInstances = goalOfInstances;
+        OperatingSystem = operatingSystem;
+        ProvisioningModel = provisioningModel;
+        this.typeOfSeries = typeOfSeries;
+        this.typeOfInstance = typeOfInstance;
+        this.typeOfGPU = typeOfGPU;
+        this.numberOfGPUs = numberOfGPUs;
+        this.localSSD = localSSD;
+        this.dataCenterLocation = dataCenterLocation;
+        this.committedUsage = committedUsage;
+        this.totalEstimatedCostUsd = totalEstimatedCostUsd;
     }
+
+ /*   public Instance() {
+    }*/
 
     public String getInstanceName() {
         return instanceName;

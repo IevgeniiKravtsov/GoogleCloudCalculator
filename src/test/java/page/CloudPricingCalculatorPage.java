@@ -48,7 +48,7 @@ public class CloudPricingCalculatorPage extends BasePage{
         super(driver);
      }
 
-    public String separateByDoubleDots (String inputString) {
+    private String separateByDoubleDots (String inputString) {
         String[] parts = inputString.split(":");
         return parts[1].trim();
     }

@@ -1,6 +1,7 @@
 package service;
 
 import model.Instance;
+import model.InstanceBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,9 +22,15 @@ public class InstanceCreation {
 
 
     public static Instance withDataFromProperty() {
-        Instance instance = new Instance();
-        instance.setInstanceName(TestDataReader.getTestData(INSTANCE_NAME));
-        instance.setGoalOfInstances(TestDataReader.getTestData(GOAL_OF_INSTANCES));
+        Instance instance = new InstanceBuilder()
+                .setInstanceName(TestDataReader
+                .getTestData(INSTANCE_NAME))
+                .setGoalOfInstances((TestDataReader
+                .getTestData(GOAL_OF_INSTANCES)))
+                .createInstance();
+
+ //       instance.setInstanceName(TestDataReader.getTestData(INSTANCE_NAME));
+ //       instance.setGoalOfInstances(TestDataReader.getTestData(GOAL_OF_INSTANCES));
         instance.setNumberOfInstances(TestDataReader.getTestData(NUMBER_OF_INSTANCES));
         instance.setProvisioningModel(TestDataReader.getTestDataData(PROVISIONING_MODEL));
         instance.setTotalEstimatedCostUsd(TestDataReader.getTestData(TOTAL_ESTIMATED_COST_USD));
