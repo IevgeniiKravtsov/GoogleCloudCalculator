@@ -22,6 +22,4 @@ public abstract class BasePage {
         this.driver = driver;
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS));
     }
-
-
 }

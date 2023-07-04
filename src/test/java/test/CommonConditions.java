@@ -1,6 +1,5 @@
 package test;
 
-import driver.DriverSingleton;
 import driver.LocalWebDriverFactory;
 import driver.WebDriverFactory;
 import org.junit.jupiter.api.AfterAll;
@@ -20,16 +19,11 @@ public class CommonConditions {
 
     @BeforeAll
     public void setUp() {
-//        driver = DriverSingleton.getDriver();
-        driver = webDriverFactory.createDriverOf();;
-
+      driver = webDriverFactory.createDriverOf();;
     }
 
     @AfterAll
     public void terDown() {
- //       DriverSingleton.closeDriver();
       webDriverFactory.closeDriver(driver);
-
     }
-
 }

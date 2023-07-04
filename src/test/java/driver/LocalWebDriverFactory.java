@@ -19,7 +19,6 @@ public class LocalWebDriverFactory implements WebDriverFactory {
                 break;
             }
             case "edge": {
-                //
                 webDriverFactory = edgeDriverFactory;
                 break;
             }
@@ -29,11 +28,8 @@ public class LocalWebDriverFactory implements WebDriverFactory {
             }
             default: {
             }
-
         }
         logger.info(System.getProperty("browser") + " driver is chosen, test suits: " + System.getProperty("groups"));
         return webDriverFactory.createDriverOf();
-
     }
-
 }

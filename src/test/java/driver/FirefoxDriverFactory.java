@@ -8,7 +8,6 @@ class FirefoxDriverFactory implements WebDriverFactory {
     @Override
     public WebDriver createDriverOf() { //WebDriverType testContext
         WebDriverManager.firefoxdriver().setup();
-
         return new FirefoxDriver();
     }
 }

@@ -32,9 +32,6 @@ public class Instance {
         this.totalEstimatedCostUsd = totalEstimatedCostUsd;
     }
 
- /*   public Instance() {
-    }*/
-
     public String getInstanceName() {
         return instanceName;
     }

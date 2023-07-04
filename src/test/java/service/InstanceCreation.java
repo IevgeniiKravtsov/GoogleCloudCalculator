@@ -29,8 +29,6 @@ public class InstanceCreation {
                 .getTestData(GOAL_OF_INSTANCES)))
                 .createInstance();
 
- //       instance.setInstanceName(TestDataReader.getTestData(INSTANCE_NAME));
- //       instance.setGoalOfInstances(TestDataReader.getTestData(GOAL_OF_INSTANCES));
         instance.setNumberOfInstances(TestDataReader.getTestData(NUMBER_OF_INSTANCES));
         instance.setProvisioningModel(TestDataReader.getTestDataData(PROVISIONING_MODEL));
         instance.setTotalEstimatedCostUsd(TestDataReader.getTestData(TOTAL_ESTIMATED_COST_USD));
